@@ -8,7 +8,7 @@ require 'line/bot'
 
 require_relative 'imagga'
 require_relative 'weather_api'
-require_relative 'tokyo_events_api'
+
 
 def client
   @client ||= Line::Bot::Client.new do |config|
@@ -29,9 +29,6 @@ def bot_answer_to(message, user_name)
     fetch_weather(message)
   elsif message.downcase.include?('eat')
     ['sushi', 'tacos', 'curry', 'pad thai', 'kebab', 'spaghetti', 'burger'].sample
-  elsif message.downcase.include?('events')
-    # call events API in tokyo_events.rb
-    fetch_tokyo_events
   elsif message.match?(/([\p{Hiragana}\p{Katakana}\p{Han}]+)/)
     # respond in japanese!
     bot_jp_answer_to(message, user_name)
@@ -118,6 +115,7 @@ post '/callback' do
           event
         )
       end
+
       # when receive an image message
     when Line::Bot::Event::MessageType::Image
       response_image = client.get_message_content(event.message['id'])
