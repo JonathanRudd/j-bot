@@ -28,6 +28,9 @@ GEM
       domain_name (~> 0.5)
     http-form_data (2.3.0)
     http_parser.rb (0.8.0)
+    httparty (0.21.0)
+      mini_mime (>= 1.0.0)
+      multi_xml (>= 0.5.2)
     line-bot-api (1.18.0)
     llhttp-ffi (0.4.0)
       ffi-compiler (~> 1.0)
@@ -35,6 +38,8 @@ GEM
     mime-types (3.4.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2022.0105)
+    mini_mime (1.1.2)
+    multi_xml (0.6.0)
     mustermann (2.0.2)
       ruby2_keywords (~> 0.0.1)
     netrc (0.11.0)
@@ -57,6 +62,8 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
+    ruby-openai (3.5.0)
+      httparty (>= 0.18.1)
     ruby2_keywords (0.0.5)
     sinatra (2.2.2)
       mustermann (~> 2.0)
@@ -87,9 +94,10 @@ DEPENDENCIES
   puma
   reel
   rest-client
+  ruby-openai
   sinatra
   thin
   webrick
 
 BUNDLED WITH
-   2.3.7
+   2.4.7

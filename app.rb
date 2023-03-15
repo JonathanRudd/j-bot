@@ -8,6 +8,7 @@ require 'line/bot'
 
 require_relative 'imagga'
 require_relative 'weather_api'
+require_relative 'gpt_api'
 
 
 def client
@@ -27,32 +28,11 @@ def bot_answer_to(message, user_name)
   elsif message.downcase.include?('weather in')
     # call weather API in weather_api.rb
     fetch_weather(message)
-  elsif message.downcase.include?('eat')
-    ['sushi', 'tacos', 'curry', 'pad thai', 'kebab', 'spaghetti', 'burger'].sample
-  elsif message.match?(/([\p{Hiragana}\p{Katakana}\p{Han}]+)/)
-    # respond in japanese!
-    bot_jp_answer_to(message, user_name)
-  elsif message.end_with?('?')
-    # respond if a user asks a question
-    "Good question, #{user_name}!"
   else
-    ["I couldn't agree more.", 'Great to hear that.', 'Interesting.'].sample
+    fetch_gpt(message)
   end
 end
 
-def bot_jp_answer_to(message, user_name)
-  if message.match?(/(おはよう|こんにちは|こんばんは|ヤッホー|ハロー).*/)
-    "こんにちは#{user_name}さん！お元気ですか?"
-  elsif message.match?(/.*元気.*(？|\?｜か)/)
-    "私は元気です、#{user_name}さん"
-  elsif message.match?(/.*(le wagon|ワゴン|バゴン).*/i)
-    "#{user_name}さん... もしかして京都のLE WAGONプログラミング学校の話ですかね？ 素敵な画っこと思います！"
-  elsif message.end_with?('?','？')
-    "いい質問ですね、#{user_name}さん！"
-  else
-    ['そうですね！', '確かに！', '間違い無いですね！'].sample
-  end
-end
 
 def send_bot_message(message, client, event)
   # Log prints for debugging
