@@ -13,7 +13,7 @@ def fetch_gpt(message)
                     {"role": "user", "content": message}], # Required.
         temperature: 0.7,
     })
-  puts response.dig("choices", 0, "message", "content")
+  return response.dig("choices", 0, "message", "content")
 end
 
 
