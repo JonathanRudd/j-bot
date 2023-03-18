@@ -15,15 +15,3 @@ def fetch_gpt(message)
     })
   return response.dig("choices", 0, "message", "content")
 end
-
-
-
-# test below works in terminal
-# curl https://api.openai.com/v1/chat/completions \
-#   -H 'Content-Type: application/json' \
-#   -H 'Authorization: Bearer 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' \
-#   -d '{
-#   "model": "gpt-3.5-turbo",
-#   "messages": [{"role": "system", "content": "You are Jonathan Rudd, a male Web Developer born in North Yorkshire in the UK in 1988. You have lived in Japan since 2013, and recently graduated from a part time coding bootcamp. You got married in december of 2022 in Mexico. Your hobbies are painting miniatures and reading SF novels."},
-#     {"role": "user", "content": "What do you do in your free time?"}]
-# }'
