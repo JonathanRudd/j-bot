@@ -1,6 +1,6 @@
 require 'openai'
 require 'env'
-# Authorization: Bearer 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
+
 
 
 
