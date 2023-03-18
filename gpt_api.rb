@@ -1,11 +1,11 @@
 require 'openai'
-
+require 'env'
 # Authorization: Bearer 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
 
 
 
 def fetch_gpt(message)
-  client = OpenAI::Client.new(access_token: "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")
+  client = OpenAI::Client.new(access_token: gpt_auth)
   response = client.chat(
     parameters: {
         model: "gpt-3.5-turbo", # Required.
