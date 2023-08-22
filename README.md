@@ -4,8 +4,8 @@ Built on the shoulder of giants, especially https://github.com/hidehiro98/
 
 [日本語ドキュメント](README.ja.md)
 
-## Line Bot example (scan the QR code with your Line app)
-![qr code](https://github.com/YannKlein/bob-the-bot/blob/master/images/qrcode.png?raw=true)
+## J-Bot (scan the QR code with your Line app)
+![qr code]([https://github.com/YannKlein/bob-the-bot/blob/master/images/qrcode.png?raw=true](https://qr-official.line.me/sid/L/295nfomw.png))
 
 ## What we use
 - [LINE Messaging API](https://developers.line.me/en/docs/messaging-api/)
